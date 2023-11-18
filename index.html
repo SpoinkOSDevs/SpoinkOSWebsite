@@ -41,10 +41,15 @@
 
   <!-- Initialize Turnstile -->
   <script>
-    const turnstile = Turnstile.configure({
-      siteKey: '0x4AAAAAAANVTQx56Tcv0IOW'
-    })
- });
+// if using synchronous loading, will be called once the DOM is ready
+turnstile.ready(function () {
+    turnstile.render('#container', {
+        sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
+        callback: function(token) {
+            console.log(`Challenge Success ${token}`);
+        },
+    });
+});
   </script>
 
 </body>
