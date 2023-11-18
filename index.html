@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to SpoinkOS</title>
 
   <!-- Add Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Add some style -->
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive; /* A cat-themed font for some feline charm */
+      color: blue; /* Your favorite color! */
+      background-color: #f0f0f0; /* A light background for readability */
+      margin: 20px;
+    }
+
+    h1, h2 {
+      color: #333; /* Darker text for headings */
+    }
+
+    ul {
+      list-style-type: square; /* Use squares for the list items */
+    }
+
+    a {
+      color: #0066cc; /* Blue links for that cohesive look */
+      text-decoration: none;
+    }
+
+    button {
+      background-color: #0066cc; /* Blue button to stand out */
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004080; /* A shade darker on hover for a cool effect */
+    }
+  </style>
 
 </head>
 
@@ -41,16 +78,19 @@
 
   <!-- Initialize Turnstile -->
   <script>
-// if using synchronous loading, will be called once the DOM is ready
-turnstile.ready(function () {
-    turnstile.render('#container', {
-        sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
-        callback: function(token) {
+    // if using asynchronous loading, will be called once the DOM is ready
+    document.addEventListener("DOMContentLoaded", function () {
+      turnstile.ready(function () {
+        turnstile.render('#download-form', {  // Specify the form ID here
+          sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
+          callback: function (token) {
             console.log(`Challenge Success ${token}`);
-        },
+          },
+        });
+      });
     });
-});
   </script>
 
 </body>
+
 </html>
