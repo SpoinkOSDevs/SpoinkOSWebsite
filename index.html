@@ -7,40 +7,44 @@
   <title>Welcome to SpoinkOS</title>
 
   <!-- Add Turnstile -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback
 
   <!-- Add some style -->
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive; /* A cat-themed font for some feline charm */
-      color: blue; /* Your favorite color! */
-      background-color: #f0f0f0; /* A light background for readability */
+      font-family: 'Comic Sans MS', cursive;
+      color: blue;
+      background-color: #f0f0f0;
       margin: 20px;
+      transition: background-color 0.5s ease; /* Smooth background color transition */
     }
 
     h1, h2 {
-      color: #333; /* Darker text for headings */
+      color: #333;
+      opacity: 0; /* Hidden by default, will fade in */
     }
 
     ul {
-      list-style-type: square; /* Use squares for the list items */
+      list-style-type: square;
     }
 
     a {
-      color: #0066cc; /* Blue links for that cohesive look */
+      color: #0066cc;
       text-decoration: none;
+      transition: color 0.3s ease; /* Smooth link color transition */
     }
 
     button {
-      background-color: #0066cc; /* Blue button to stand out */
+      background-color: #0066cc;
       color: white;
       padding: 10px;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth button color transition */
     }
 
     button:hover {
-      background-color: #004080; /* A shade darker on hover for a cool effect */
+      background-color: #004080;
     }
   </style>
 
@@ -65,7 +69,10 @@
   <h2>Get SpoinkOS</h2>
 
   <form id="download-form">
-    <button id="download-button">Download ISO</button>
+    <!-- Add the 'download' attribute to trigger the download -->
+    <a href="https://example.com/sample-spoinkos.iso" download>
+      <button id="download-button">Download ISO</button>
+    </a>
   </form>
 
   <h2>Helpful Links</h2>
@@ -78,10 +85,9 @@
 
   <!-- Initialize Turnstile -->
   <script>
-    // if using asynchronous loading, will be called once the DOM is ready
     document.addEventListener("DOMContentLoaded", function () {
       turnstile.ready(function () {
-        turnstile.render('#download-form', {  // Specify the form ID here
+        turnstile.render('#download-form', {
           sitekey: '0x4AAAAAAANVTQx56Tcv0IOW',
           callback: function (token) {
             console.log(`Challenge Success ${token}`);
@@ -89,7 +95,33 @@
         });
       });
     });
+
+    // Add fadeIn animation with JavaScript
+    document.addEventListener("DOMContentLoaded", function () {
+      var headings = document.querySelectorAll('h1, h2');
+      headings.forEach(function (heading) {
+        setTimeout(function () {
+          heading.style.opacity = '1';
+        }, 500); // Delay for a smoother effect
+      });
+    });
   </script>
+
+  <!-- Add some animations with CSS -->
+  <style>
+    h1, h2, p, ul, button {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
 
 </body>
 
