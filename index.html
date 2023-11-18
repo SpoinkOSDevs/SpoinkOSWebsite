@@ -4,80 +4,48 @@
 <head>
   <title>Welcome to SpoinkOS</title>
 
-  <style>
-    /* Use a font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    
-    /* Add transitions for smooth hover effects */
-    a {
-      transition: color 0.3s;
-    }
-    
-    a:hover {
-      color: #0077cc;
-    }
-    
-    h1, h2 {
-      font-weight: 600;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      color: #0077cc;
-    }
-    
-    h2 {
-      font-size: 1.5rem;
-      color: #333;
-    }
-    
-    p {
-      line-height: 1.6;
-    }
-  </style>
+  <!-- Add Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 
 <body>
 
-  <header>
-    <h1>Welcome to SpoinkOS</h1>
-  </header>
+  <h1>Welcome to SpoinkOS</h1>
 
-  <main>
+  <p>SpoinkOS is a user-friendly, open-source Linux distribution that aims to provide a smooth and efficient computing experience for everyone. Whether you're a beginner or a seasoned Linux enthusiast, our distro has something for you!</p>
 
-    <p>SpoinkOS is a user-friendly, open-source Linux distribution that aims to provide a smooth and efficient computing experience for everyone.</p>
+  <h2>Features</h2>
 
-    <h2>Features</h2>
+  <ul>
+    <li>User-Friendly Interface</li>
+    <li>Customizability</li>
+    <li>Based on Ubuntu</li>
+    <li>Uses KDE Plasma Desktop</li>
+    <li>Preinstalled Apps like VLC, GIMP, OnlyOffice</li>
+  </ul>
 
-    <ul>
-      <li>User-Friendly Interface</li>
-      <li>Customizability</li>
-      <li>Based on Ubuntu</li>
-      <li>Uses KDE Plasma Desktop</li>
-      <li>Preinstalled Apps like VLC, GIMP, OnlyOffice</li>
-    </ul>
+  <h2>Get SpoinkOS</h2>
 
-    <h2>Get SpoinkOS</h2>
+  <form id="download-form">
+    <button id="download-button">Download ISO</button>
+  </form>
 
-    <p><a href="https://archive.org/download/spoink-os/SpoinkOS-desktop-amd64-Blue.Whisker.Stable.iso">Download ISO</a></p>
+  <h2>Helpful Links</h2>
 
-    <h2>Helpful Links</h2>
+  <ul>
+    <li><a href="https://discord.gg/f7eT26K4D7">Discord Server</a></li>
+    <li><a href="mailto:SpoinkOSGithub@gmail.com">Email</a></li>
+    <li><a href="https://archive.org/details/spoink-os">Internet Archive</a></li>
+  </ul>
 
-    <ul>
-      <li><a href="https://discord.gg/f7eT26K4D7">Discord Server</a></li>
-      <li><a href="mailto:SpoinkOSGithub@gmail.com">Email</a></li>
-      <li><a href="https://archive.org/details/spoink-os">Internet Archive</a></li>
-    </ul>
-
-  </main>
+  <!-- Initialize Turnstile -->
+  <script>
+    const turnstile = Turnstile.configure({
+      siteKey: '0x4AAAAAAANVTQx56Tcv0IOW'
+    })
+ });
+  </script>
 
 </body>
-
 </html>
